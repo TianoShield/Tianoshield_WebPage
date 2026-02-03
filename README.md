@@ -40,7 +40,7 @@ npm run deploy
 Automated:
 #### `.github/workflows/`
 Contains GitHub Actions workflow files for CI/CD automation.
-- **`deploy.yml`**: Automatically builds and deploys the site to GitHub Pages when code is pushed to the master branch.
+- **`auto_deploy.yml`**: Automatically builds and deploys the site to GitHub Pages when code is pushed to the master branch.
 
 
 ## Key Configuration Details
