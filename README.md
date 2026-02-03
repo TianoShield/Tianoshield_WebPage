@@ -1,4 +1,4 @@
-**Live Site:** [https://tianoshield.github.io/Tianoshield_WebPage/](https://tianoshield.github.io/Tianoshield_WebPage/)
+**Live Site:** [https://tianoshield.github.io/home/](https://tianoshield.github.io/home/)
 
 ### Prerequisites
 
@@ -10,7 +10,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/TianoShield/Tianoshield_WebPage.git
+   git clone https://github.com/TianoShield/home.git
    cd Tianoshield_WebPage
    ```
 
