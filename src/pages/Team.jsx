@@ -9,31 +9,30 @@ const Team = () => {
     {
       id: 1,
       name: 'Dr. Armin Moin',
-      role: 'Principal Investigator',
+      role: 'Principal Investigator (PI)',
       profession: 'Assistant Professor',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      location: 'University of Colorado Colorado Springs (UCCS), Colorado, USA',
       website: 'https://faculty.uccs.edu/amoin/'
     },
     {
       id: 2,
       name: 'Dr. Aravind Machiry',
-      role: 'Co-Principal Investigator',
+      role: 'Co-PI',
       profession: 'Assistant Professor',
       location: 'Purdue University, Indiana, USA',
-      website: 'https://www.cerias.purdue.edu/site/people/faculty/view/3304'
+      website: 'https://machiry.github.io/'
     },
     {
       id: 3,
       name: 'Dr. Terrance E. Boult',
       role: 'Senior Advisor',
       profession: 'Distinguished Professor',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      location: 'UCCS, Colorado, USA',
       website: 'https://eas.uccs.edu/departments/computer-science/directory/faculty/terrance-boult'
     },
     {
       id: 4,
       name: 'Sourag Cherupatyamoolayil',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
       location: 'Purdue University, Indiana, USA',
       website: ''
@@ -41,7 +40,6 @@ const Team = () => {
     {
       id: 5,
       name: 'Srihari Danduri',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
       location: 'Purdue University, Indiana, USA',
       website: ''
@@ -49,7 +47,6 @@ const Team = () => {
     {
       id: 6,
       name: 'Connor Glosner',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
       location: 'Purdue University, Indiana, USA',
       website: ''
@@ -57,31 +54,27 @@ const Team = () => {
     {
       id: 7,
       name: 'Devin Haggitt',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      location: 'UCCS, Colorado, USA',
       website: ''
     },
     {
       id: 8,
       name: 'Samuel Poarch',
-      role: 'Research Team',
-      profession: 'Under-Graduate Research Assistant',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      profession: 'Undergraduate Research Assistant',
+      location: 'UCCS, Colorado, USA',
       website: ''
     },
     {
       id: 9,
       name: 'Neelesh Reddybattula',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      location: 'UCCS, Colorado, USA',
       website: ''
     },
     {
       id: 10,
       name: 'Ming Shen',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
       location: 'Purdue University, Indiana, USA',
       website: ''
@@ -89,15 +82,31 @@ const Team = () => {
     {
       id: 11,
       name: 'Nazanin Siavash',
-      role: 'Research Team',
       profession: 'Graduate Research Assistant',
-      location: 'University of Colorado Colorado Springs, Colorado, USA',
+      location: 'UCCS, Colorado, USA',
       website: ''
     },
   ];
 
-  // Consultants & Collaborators Data
-  const consultants = [
+  // Consultants & Collaborators Data\
+  //Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
+  const keyCollaborator = [
+    {
+      name: 'Intel Corporation',
+      website: 'https://www.intel.com/content/www/us/en/homepage.html'
+    }
+  ] 
+
+  //Consultant
+  const consultant = [
+    {
+      name: 'Binarly',
+      website: 'https://www.binarly.io/'
+    }
+  ];
+
+  //Other Collaborators
+  const otherCollaborators = [
     {
       name: 'American Megatrends Inc (AMI)',
       website: 'https://www.ami.com/'
@@ -105,10 +114,6 @@ const Team = () => {
     {
       name: 'ARM',
       website: 'https://www.arm.com/'
-    },
-    {
-      name: 'Binarly',
-      website: 'https://www.binarly.io/'
     },
     {
       name: 'Framework Computer LLC',
@@ -121,10 +126,6 @@ const Team = () => {
     {
       name: 'Insyde',
       website: 'https://www.insyde.com/'
-    },
-    {
-      name: 'Intel Corporation',
-      website: 'https://www.intel.com/content/www/us/en/homepage.html'
     },
     {
       name: 'Lenovo',
@@ -150,9 +151,6 @@ const Team = () => {
               Our Team
             </span>
           </h1>
-          <p className="text-xl text-gray-300">
-            Meet the people behind TianoShield
-          </p>
         </div>
       </div>
 
@@ -171,14 +169,14 @@ const Team = () => {
               Implementation Teams ({implementationTeam.length})
             </button>
             <button
-              onClick={() => setActiveTab('consultants')}
+              onClick={() => setActiveTab('consultant')}
               className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'consultants'
                   ? 'border-primary-500 text-primary-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
-              Consultants & Collaborators ({consultants.length})
+              Consultants & Collaborators ({consultant.length+keyCollaborator.length+otherCollaborators.length})
             </button>
           </div>
         </div>
@@ -249,10 +247,85 @@ const Team = () => {
         )}
 
         {/* Consultants & Collaborators Tab */}
-        {activeTab === 'consultants' && (
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
+        <h3 className="text-xl font-bold text-gray-900 mb-10 text-custom-color">
+                        Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
+                      </h3>
+        {activeTab === 'consultant' && (
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10" >
             <div className="divide-y divide-gray-200">
-              {consultants.map((consultant, index) => (
+              {keyCollaborator.map((consultant, index) => (
+                <div
+                  key={index}
+                  className="p-6 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {consultant.name}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex-shrink-0">
+                      <a
+                        href={consultant.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+                      >
+                        <FaGlobe className="mr-2" />
+                        Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <h3 className="text-xl font-bold text-custom-color mb-10" >
+                        Consultant
+                      </h3>
+        {activeTab === 'consultant' && (
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10">
+            <div className="divide-y divide-gray-200">
+              {consultant.map((consultant, index) => (
+                <div
+                  key={index}
+                  className="p-6 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {consultant.name}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex-shrink-0">
+                      <a
+                        href={consultant.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+                      >
+                        <FaGlobe className="mr-2" />
+                        Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <h3 className="text-xl font-bold text-gray-900 mb-10 text-custom-color">
+                        Other Collaborators
+                      </h3>
+        {activeTab === 'consultant' && (
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10">
+            <div className="divide-y divide-gray-200">
+              {otherCollaborators.map((consultant, index) => (
                 <div
                   key={index}
                   className="p-6 hover:bg-gray-50 transition-colors"

@@ -47,9 +47,7 @@ const Contact = () => {
               Contact Us
             </span>
           </h1>
-          <p className="text-xl text-gray-300">
-            Get in touch with the TianoShield team
-          </p>
+          
         </div>
       </div>
 
@@ -66,13 +64,7 @@ const Contact = () => {
               We'd love to hear from you!
             </p>
 
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-primary-50 to-accent-50 border-l-4 border-primary-500 p-4 rounded-r-lg">
-                <p className="text-sm text-gray-700">
-                  <strong>Response Time:</strong> We typically respond within 1-2 business days.
-                </p>
-              </div>
-            </div>
+            
           </div>
 
           {/* Contact Form */}

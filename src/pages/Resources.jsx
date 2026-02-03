@@ -14,7 +14,7 @@ const Deliverables = () => {
             Under Construction
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            We're working hard to bring you information about our project deliverables.
+            We're working hard to bring you information.
             Check back soon!
           </p>
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary-50 to-accent-50 text-primary-700 rounded-full text-sm font-semibold">
