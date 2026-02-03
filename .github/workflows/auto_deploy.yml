@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master # will auto deplyt if a commit to master branch
+      - master # will auto deploy if a commit to master branch
 
 permissions:
   contents: write
@@ -21,16 +21,14 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install
-        working-directory: ./frontend
+      - name: Install dependencies
         run: npm install
 
       - name: Build
-        working-directory: ./frontend
         run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist
+          publish_dir: ./dist
