@@ -177,7 +177,7 @@ const Home = () => {
             Interested in our Research?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join us in advancing firmware security. We're always looking for collaborators and contributors.
+            A collaborative research initiative between UCCS and Purdue University.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
