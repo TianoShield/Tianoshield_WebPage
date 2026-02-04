@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGlobe, FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
+import { FaGlobe, FaMapMarkerAlt, FaBriefcase, FaEnvelope, FaPhone, FaMobileAlt } from 'react-icons/fa';
 
 const Team = () => {
   const [activeTab, setActiveTab] = useState('implementation');
@@ -92,15 +92,31 @@ const Team = () => {
   const keyCollaborator = [
     {
       name: 'Intel Corporation',
-      website: 'https://www.intel.com/content/www/us/en/homepage.html'
+      website: 'https://www.intel.com/content/www/us/en/homepage.html',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     }
   ];
 
   // Consultant
   const consultant = [
     {
-      name: 'Binarly',
-      website: 'https://www.binarly.io/'
+      name: 'Binarly Inc.',
+      website: 'https://www.binarly.io/',
+      contactPerson: 'Alex Matrosov',
+      degree: '',
+      position: 'CEO and Founder',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     }
   ];
 
@@ -108,37 +124,205 @@ const Team = () => {
   const otherCollaborators = [
     {
       name: 'American Megatrends Inc (AMI)',
-      website: 'https://www.ami.com/'
+      website: 'https://www.ami.com/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'Arm',
-      website: 'https://www.arm.com/'
+      website: 'https://www.arm.com/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'Framework Computer LLC',
-      website: 'https://frame.work/'
+      website: 'https://frame.work/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'GitHub Security',
-      website: 'https://github.com/'
+      website: 'https://github.com/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'Insyde',
-      website: 'https://www.insyde.com/'
+      website: 'https://www.insyde.com/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'Lenovo',
-      website: 'https://www.lenovo.com/us/en/'
+      website: 'https://www.lenovo.com/us/en/',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
     {
       name: 'Phoenix Technologies',
-      website: 'https://phoenixtech.com/'
+      website: 'https://phoenixtech.com/',
+      contactPerson: 'Richard \'Dick\' Wilkins',
+      degree: 'Ph.D.',
+      position: 'Principal Technology Liaison',
+      email: 'Dick.Wilkins@phoenixtech.com',
+      phone1: '+1 (408) 570-1094',
+      phone1Label: 'Business',
+      phone2: '+1 (425) 503-4639',
+      phone2Label: 'Cell'
     },
     {
       name: 'UEFI-RS',
-      website: 'https://github.com/rust-osdev/uefi-rs'
+      website: 'https://github.com/rust-osdev/uefi-rs',
+      contactPerson: '',
+      degree: '',
+      position: '',
+      email: '',
+      phone1: '',
+      phone1Label: '',
+      phone2: '',
+      phone2Label: ''
     },
   ];
+
+  // Component to render collaborator/consultant cards
+  const CollaboratorCard = ({ collaborator, index }) => (
+    <div
+      key={index}
+      className="p-6 hover:bg-gray-50 transition-colors"
+    >
+      <div className="flex flex-col gap-4">
+        {/* Organization Name */}
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+          <div className="flex-1">
+            <h4 className="text-xl font-bold text-gray-900 mb-2">
+              {collaborator.name}
+            </h4>
+
+            {/* Contact Person Details */}
+            {collaborator.contactPerson && (
+              <div className="space-y-3 mt-4 pt-4 border-t border-gray-200">
+                {/* Name and Degree */}
+                <div>
+                  <p className="text-lg font-semibold text-gray-800">
+                    {collaborator.contactPerson}
+                    {collaborator.degree && (
+                      <span className="text-gray-600 font-normal">, {collaborator.degree}</span>
+                    )}
+                  </p>
+                </div>
+
+                {/* Position */}
+                {collaborator.position && (
+                  <div className="flex items-center text-gray-700">
+                    <FaBriefcase className="mr-2 flex-shrink-0 text-primary-500" />
+                    <span>{collaborator.position}</span>
+                  </div>
+                )}
+
+                {/* Email */}
+                {collaborator.email && (
+                  <div className="flex items-center text-gray-700">
+                    <FaEnvelope className="mr-2 flex-shrink-0 text-primary-500" />
+                    <a
+                      href={`mailto:${collaborator.email}`}
+                      className="text-primary-600 hover:text-primary-700 hover:underline"
+                    >
+                      {collaborator.email}
+                    </a>
+                  </div>
+                )}
+
+                {/* Phone 1 */}
+                {collaborator.phone1 && (
+                  <div className="flex items-center text-gray-700">
+                    <FaPhone className="mr-2 flex-shrink-0 text-primary-500" />
+                    <a
+                      href={`tel:${collaborator.phone1}`}
+                      className="text-primary-600 hover:text-primary-700 hover:underline"
+                    >
+                      {collaborator.phone1}
+                    </a>
+                    {collaborator.phone1Label && (
+                      <span className="ml-2 text-sm text-gray-500">
+                        ({collaborator.phone1Label})
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Phone 2 */}
+                {collaborator.phone2 && (
+                  <div className="flex items-center text-gray-700">
+                    <FaMobileAlt className="mr-2 flex-shrink-0 text-primary-500" />
+                    <a
+                      href={`tel:${collaborator.phone2}`}
+                      className="text-primary-600 hover:text-primary-700 hover:underline"
+                    >
+                      {collaborator.phone2}
+                    </a>
+                    {collaborator.phone2Label && (
+                      <span className="ml-2 text-sm text-gray-500">
+                        ({collaborator.phone2Label})
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          
+          {/* Website Button */}
+          <div className="flex-shrink-0">
+            <a
+              href={collaborator.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+            >
+              <FaGlobe className="mr-2" />
+              Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -202,7 +386,7 @@ const Team = () => {
                       <div className="space-y-2">
                         {member.role && (
                           <div className="flex items-center text-primary-600 font-medium">
-                            {(member.id<3) ? (<FaBriefcase className="mr-2 flex-shrink-0" />):<></>}
+                            {(member.id < 3) ? (<FaBriefcase className="mr-2 flex-shrink-0" />) : <></>}
                             <span>{member.role}</span>
                           </div>
                         )}
@@ -250,30 +434,7 @@ const Team = () => {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
                 <div className="divide-y divide-gray-200">
                   {keyCollaborator.map((collab, index) => (
-                    <div
-                      key={index}
-                      className="p-6 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900">
-                            {collab.name}
-                          </h4>
-                        </div>
-                        
-                        <div className="flex-shrink-0">
-                          <a
-                            href={collab.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                          >
-                            <FaGlobe className="mr-2" />
-                            Website
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <CollaboratorCard key={index} collaborator={collab} index={index} />
                   ))}
                 </div>
               </div>
@@ -287,30 +448,7 @@ const Team = () => {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
                 <div className="divide-y divide-gray-200">
                   {consultant.map((cons, index) => (
-                    <div
-                      key={index}
-                      className="p-6 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900">
-                            {cons.name}
-                          </h4>
-                        </div>
-                        
-                        <div className="flex-shrink-0">
-                          <a
-                            href={cons.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                          >
-                            <FaGlobe className="mr-2" />
-                            Website
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <CollaboratorCard key={index} collaborator={cons} index={index} />
                   ))}
                 </div>
               </div>
@@ -324,30 +462,7 @@ const Team = () => {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
                 <div className="divide-y divide-gray-200">
                   {otherCollaborators.map((collab, index) => (
-                    <div
-                      key={index}
-                      className="p-6 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900">
-                            {collab.name}
-                          </h4>
-                        </div>
-                        
-                        <div className="flex-shrink-0">
-                          <a
-                            href={collab.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                          >
-                            <FaGlobe className="mr-2" />
-                            Website
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <CollaboratorCard key={index} collaborator={collab} index={index} />
                   ))}
                 </div>
               </div>
