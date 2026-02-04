@@ -88,16 +88,15 @@ const Team = () => {
     },
   ];
 
-  // Consultants & Collaborators Data\
-  //Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
+  // Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
   const keyCollaborator = [
     {
       name: 'Intel Corporation',
       website: 'https://www.intel.com/content/www/us/en/homepage.html'
     }
-  ] 
+  ];
 
-  //Consultant
+  // Consultant
   const consultant = [
     {
       name: 'Binarly',
@@ -105,7 +104,7 @@ const Team = () => {
     }
   ];
 
-  //Other Collaborators
+  // Other Collaborators
   const otherCollaborators = [
     {
       name: 'American Megatrends Inc (AMI)',
@@ -169,14 +168,14 @@ const Team = () => {
               Implementation Teams ({implementationTeam.length})
             </button>
             <button
-              onClick={() => setActiveTab('consultant')}
+              onClick={() => setActiveTab('consultants')}
               className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'consultants'
                   ? 'border-primary-500 text-primary-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
-              Consultants & Collaborators ({consultant.length+keyCollaborator.length+otherCollaborators.length})
+              Consultants & Collaborators ({consultant.length + keyCollaborator.length + otherCollaborators.length})
             </button>
           </div>
         </div>
@@ -201,15 +200,9 @@ const Team = () => {
                       </h3>
                       
                       <div className="space-y-2">
-                        {(member.id === 1 || member.id === 2) && (
+                        {member.role && (
                           <div className="flex items-center text-primary-600 font-medium">
                             <FaBriefcase className="mr-2 flex-shrink-0" />
-                            <span>{member.role}</span>
-                          </div>
-                        )}
-                        
-                        {member.id > 2 && (
-                          <div className="flex items-center text-primary-600 font-medium">
                             <span>{member.role}</span>
                           </div>
                         )}
@@ -247,110 +240,117 @@ const Team = () => {
         )}
 
         {/* Consultants & Collaborators Tab */}
-        <h3 className="text-xl font-bold text-gray-900 mb-10 text-custom-color">
-                        Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
-                      </h3>
-        {activeTab === 'consultant' && (
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10" >
-            <div className="divide-y divide-gray-200">
-              {keyCollaborator.map((consultant, index) => (
-                <div
-                  key={index}
-                  className="p-6 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">
-                        {consultant.name}
-                      </h3>
+        {activeTab === 'consultants' && (
+          <div className="space-y-12">
+            {/* Key Collaborator Section */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Key Collaborator & the Open-Source Ecosystem (OSE) Team Lead
+              </h3>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
+                <div className="divide-y divide-gray-200">
+                  {keyCollaborator.map((collab, index) => (
+                    <div
+                      key={index}
+                      className="p-6 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex-1">
+                          <h4 className="text-xl font-bold text-gray-900">
+                            {collab.name}
+                          </h4>
+                        </div>
+                        
+                        <div className="flex-shrink-0">
+                          <a
+                            href={collab.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+                          >
+                            <FaGlobe className="mr-2" />
+                            Website
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="flex-shrink-0">
-                      <a
-                        href={consultant.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                      >
-                        <FaGlobe className="mr-2" />
-                        Website
-                      </a>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        )}
 
-        <h3 className="text-xl font-bold text-custom-color mb-10" >
-                        Consultant
-                      </h3>
-        {activeTab === 'consultant' && (
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10">
-            <div className="divide-y divide-gray-200">
-              {consultant.map((consultant, index) => (
-                <div
-                  key={index}
-                  className="p-6 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">
-                        {consultant.name}
-                      </h3>
+            {/* Consultant Section */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Consultant
+              </h3>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
+                <div className="divide-y divide-gray-200">
+                  {consultant.map((cons, index) => (
+                    <div
+                      key={index}
+                      className="p-6 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex-1">
+                          <h4 className="text-xl font-bold text-gray-900">
+                            {cons.name}
+                          </h4>
+                        </div>
+                        
+                        <div className="flex-shrink-0">
+                          <a
+                            href={cons.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+                          >
+                            <FaGlobe className="mr-2" />
+                            Website
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="flex-shrink-0">
-                      <a
-                        href={consultant.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                      >
-                        <FaGlobe className="mr-2" />
-                        Website
-                      </a>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        )}
 
-        <h3 className="text-xl font-bold text-gray-900 mb-10 text-custom-color">
-                        Other Collaborators
-                      </h3>
-        {activeTab === 'consultant' && (
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500 mb-10">
-            <div className="divide-y divide-gray-200">
-              {otherCollaborators.map((consultant, index) => (
-                <div
-                  key={index}
-                  className="p-6 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">
-                        {consultant.name}
-                      </h3>
+            {/* Other Collaborators Section */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Other Collaborators
+              </h3>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-accent-500">
+                <div className="divide-y divide-gray-200">
+                  {otherCollaborators.map((collab, index) => (
+                    <div
+                      key={index}
+                      className="p-6 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex-1">
+                          <h4 className="text-xl font-bold text-gray-900">
+                            {collab.name}
+                          </h4>
+                        </div>
+                        
+                        <div className="flex-shrink-0">
+                          <a
+                            href={collab.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
+                          >
+                            <FaGlobe className="mr-2" />
+                            Website
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="flex-shrink-0">
-                      <a
-                        href={consultant.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md hover:from-primary-600 hover:to-accent-600 transition-all text-sm"
-                      >
-                        <FaGlobe className="mr-2" />
-                        Website
-                      </a>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         )}
