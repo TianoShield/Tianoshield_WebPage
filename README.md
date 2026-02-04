@@ -11,7 +11,7 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/TianoShield/home.git
-   cd Tianoshield_WebPage
+   cd home
    ```
 
 2. **Install dependencies:**
