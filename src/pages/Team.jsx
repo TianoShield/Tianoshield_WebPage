@@ -92,6 +92,7 @@ const Team = () => {
   const keyCollaborator = [
     {
       name: 'TianoCore Community',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.tianocore.org/',
       link2: 'Repository',
@@ -111,6 +112,7 @@ const Team = () => {
   const consultant = [
     {
       name: 'Binarly Inc.',
+      companyEmail: 'info@binarly.io',
       link1: 'Website',
       website1: 'https://www.binarly.io/',
       link2: '',
@@ -130,6 +132,7 @@ const Team = () => {
   const otherCollaborators = [
     {
       name: 'American Megatrends Inc. (AMI)',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.ami.com/',
       link2: '',
@@ -145,6 +148,7 @@ const Team = () => {
     },
     {
       name: 'Arm',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.arm.com/',
       link2: '',
@@ -160,6 +164,7 @@ const Team = () => {
     },
     {
       name: 'Framework Computer LLC',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://frame.work/',
       link2: '',
@@ -175,6 +180,7 @@ const Team = () => {
     },
     {
       name: 'GitHub Security',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://github.com/',
       link2: '',
@@ -190,6 +196,7 @@ const Team = () => {
     },
     {
       name: 'Insyde Software',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.insyde.com/',
       link2: '',
@@ -205,6 +212,7 @@ const Team = () => {
     },
     {
       name: 'Intel Corporation',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.intel.com/content/www/us/en/homepage.html',
       link2: '',
@@ -220,6 +228,7 @@ const Team = () => {
     },
     {
       name: 'Lenovo',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://www.lenovo.com/us/en/',
       link2: '',
@@ -235,6 +244,7 @@ const Team = () => {
     },
     {
       name: 'Phoenix Technologies',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://phoenixtech.com/',
       link2: '',
@@ -250,6 +260,7 @@ const Team = () => {
     },
     {
       name: 'UEFI-RS',
+      companyEmail: '',
       link1: 'Website',
       website1: 'https://github.com/rust-osdev/uefi-rs',
       link2: '',
@@ -279,6 +290,20 @@ const Team = () => {
               {collaborator.name}
             </h4>
 
+            {/* Company Email */}
+            {collaborator.companyEmail && (
+              <div className="flex items-center text-gray-700 mt-2">
+                <FaEnvelope className="mr-2 flex-shrink-0 text-primary-500" />
+                <a
+                  href={`mailto:${collaborator.companyEmail}`}
+                  className="text-primary-600 hover:text-primary-700 hover:underline"
+                >
+                  {collaborator.companyEmail}
+                </a>
+                {/* <span className="ml-2 text-sm text-gray-500">(Company)</span> */}
+              </div>
+            )}
+
             {/* Contact Person Details */}
             {collaborator.contactPerson && (
               <div className="space-y-3 mt-4 pt-4 border-t border-gray-200">
@@ -300,7 +325,7 @@ const Team = () => {
                   </div>
                 )}
 
-                {/* Email */}
+                {/* Contact Person Email */}
                 {collaborator.email && (
                   <div className="flex items-center text-gray-700">
                     <FaEnvelope className="mr-2 flex-shrink-0 text-primary-500" />
@@ -310,6 +335,7 @@ const Team = () => {
                     >
                       {collaborator.email}
                     </a>
+                    {/* <span className="ml-2 text-sm text-gray-500">(Personal)</span> */}
                   </div>
                 )}
 
