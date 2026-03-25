@@ -87,7 +87,7 @@ const Events = () => {
               title: 'All Models Are Wrong, Some Are Useful: Firmware-Aware Risk Scoring for Real-World Prioritization',
               speaker: 'Alex Matrosov',
               speakerTitle: 'CEO and Founder of Binarly Inc.',
-              abstract: null,
+              abstract: 'Opaque scoring models are everywhere in vulnerability management, yet they often fail to drive clear action. This talk presents a transparent, firmware-aware risk scoring approach designed to support real-world prioritization for device and embedded security.',
               type: 'keynote',
             },
           ],
@@ -105,7 +105,7 @@ const Events = () => {
               title: "Meeting the NSA's \"Guidance for Managing UEFI Secure Boot\"",
               speaker: 'Kevin Davis',
               speakerTitle: 'Office of Security and Trust, Insyde Software',
-              abstract: null,
+              abstract: 'As the foundational layer of modern computing, UEFI firmware has become a primary target for sophisticated adversaries seeking "below-the-OS" persistence. This talk explores the evolution of the National Security Agency\'s (NSA) recommendations, specifically contrasting the 2017 defensive practices with the updated "Guidance for Managing UEFI Secure Boot" released in late 2025. Attendees will learn why the shift from the 2017 guidance was necessary, moving from a passive "enablement" stance to an active "management and customization" model. This change was driven by the rise of vulnerabilities like BootHole, BlackLotus, and PKFail, which demonstrated that default configurations are no longer sufficient against modern bootkits. The session will demonstrate how InsydeH2O® implementations address these requirements. We will cover how H2O provides the granular controls needed to replace factory keys, manage DBX revocation lists, and utilize "Thorough Boot" modes to audit all firmware modules and expansion devices. We will hint at some possible changes being proposed by UEFI groups. By the end of this session, participants will understand not only the why behind the NSA\'s rigorous new standards but also the how of implementing them using industry-leading UEFI solutions to mitigate persistent firmware threats.',
               type: 'talk',
             },
             {
@@ -144,14 +144,14 @@ const Events = () => {
               title: 'BreakingBoot: The Shortcomings of Modern Software Testing Tools in EDK II and How to Improve Them',
               speaker: 'Connor Glosner',
               speakerTitle: 'Purdue University',
-              abstract: null,
+              abstract: 'Firmware operates at the highest privilege level in modern systems, yet its testing ecosystem remains immature. EDK2, the reference open-source implementation of UEFI, relies on development workflows that were never designed for boot-phase–aware static and dynamic analysis. As a result, commonly used tools such as CodeQL and boot-phase fuzzing frameworks struggle with incomplete modeling of PEI/DXE/SMM transitions, fragile harness construction, shallow coverage, and poor CI/CD integration. In this talk, we analyze the practical shortcomings of modern firmware testing pipelines and demonstrate how they fail to surface high-impact vulnerabilities in real EDK2 modules. We then present targeted improvements: phase-aware static analysis extensions, automated UEFI harness generation, firmware-compatible memory instrumentation, and CI-ready orchestration. Our results show improved coverage, reduced false positives, and newly discovered vulnerabilities.',
               type: 'talk',
             },
             {
               title: 'Using Artificial Intelligence (AI) to enhance the bug triage process in TianoCore (e.g., EDK II)',
               speaker: 'Nazanin Siavash',
               speakerTitle: 'University of Colorado Colorado Springs (UCCS)',
-              abstract: null,
+              abstract: 'Bug triage in large-scale open-source firmware projects, such as the TianoCore EDK II, is inherently time-consuming and resource-intensive. As the codebase expands, the manual process of bug triage faces a substantial bottleneck. This talk outlines our ongoing research on applying Artificial Intelligence (AI), specifically Machine Learning (ML) methods and techniques, to automate and streamline the bug triage pipeline within EDK II and beyond. We decompose the bug triage workflow into four focused sub-tasks: automated duplicate detection, automated bug prioritization, automated bug assignment, and automated invalid bug report detection. Additionally, we study automated bug title optimization. In this talk, we report the current progress on the first three components, duplicate detection, prioritization, and assignment, detailing our methodology and presenting preliminary results. In addition, we describe early-stage research directions for invalid bug report detection and bug title optimization, emphasizing the distinct challenges associated with the TianoCore bug reports. Our objective is to reduce the triage overhead, shorten bug resolution cycles, and enable software maintainers to concentrate on higher-value engineering activities. We conclude by discussing key lessons learned, open challenges, and the broader applicability of this approach to other open-source ecosystems.',
               type: 'talk',
             },
           ],
@@ -164,6 +164,7 @@ const Events = () => {
         {
           time: '3:15 – 4:45 pm',
           title: 'Session 3 (Industry Panel)',
+          moderator: 'Aravind Machiry',
           talks: [],
         },
         {
@@ -408,6 +409,14 @@ const Events = () => {
                             <p className={`font-bold leading-snug ${slot.isBreak ? 'text-gray-500' : 'text-gray-900'}`}>
                               {slot.title}
                             </p>
+
+                            {/* Moderator line */}
+                            {slot.moderator && (
+                              <p className="text-sm text-gray-600 mt-1">
+                                Moderated by{' '}
+                                <span className="font-semibold text-primary-700">{slot.moderator}</span>
+                              </p>
+                            )}
 
                             {slot.talks && slot.talks.length > 0 && (
                               <ul className="mt-3 space-y-4">
