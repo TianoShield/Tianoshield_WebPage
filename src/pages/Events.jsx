@@ -40,16 +40,16 @@ const Events = () => {
       location: 'DoubleTree Resort by Hilton Hotel Paradise Valley, Scottsdale, Arizona, USA',
       projectWebsite: 'https://tianoshield.github.io/home',
       organizingCommittee: {
-        chair: {
-          role: 'Workshop Chair',
-          name: 'Armin Moin',
-          affiliation: 'University of Colorado Colorado Springs (UCCS), Colorado, USA',
-        },
-        coChair: {
-          role: 'Workshop Co-Chair',
-          name: 'Aravind Machiry',
-          affiliation: 'Purdue University, Indiana, USA',
-        },
+         coChairs: [
+          {
+            name: 'Armin Moin',
+            affiliation: 'University of Colorado Colorado Springs (UCCS), USA',
+          },
+          {
+            name: 'Aravind Machiry',
+            affiliation: 'Purdue University, USA',
+          },
+        ],
       },
       programCommittee: [
         { name: 'Terrance E. Boult', affiliation: 'UCCS, Colorado, USA' },
@@ -277,22 +277,19 @@ const Events = () => {
                       <h4 className="text-base font-bold text-primary-700 uppercase tracking-wide mb-4">
                         Organizing Committee
                       </h4>
-                      <ul className="space-y-3">
-                        <li className="flex flex-col">
-                          <span className="text-xs font-semibold text-accent-600 uppercase tracking-wide">
-                            {event.organizingCommittee.chair.role}
-                          </span>
-                          <span className="font-semibold text-gray-900">{event.organizingCommittee.chair.name}</span>
-                          <span className="text-sm text-gray-600">{event.organizingCommittee.chair.affiliation}</span>
-                        </li>
-                        <li className="flex flex-col">
-                          <span className="text-xs font-semibold text-accent-600 uppercase tracking-wide">
-                            {event.organizingCommittee.coChair.role}
-                          </span>
-                          <span className="font-semibold text-gray-900">{event.organizingCommittee.coChair.name}</span>
-                          <span className="text-sm text-gray-600">{event.organizingCommittee.coChair.affiliation}</span>
-                        </li>
-                      </ul>
+                      <div>
+                        <span className="text-xs font-semibold text-accent-600 uppercase tracking-wide">
+                          Workshop Co-Chairs
+                        </span>
+                        <ul className="mt-2 space-y-3">
+                          {event.organizingCommittee.coChairs.map((chair, idx) => (
+                            <li key={idx} className="flex flex-col">
+                              <span className="font-semibold text-gray-900">{chair.name}</span>
+                              <span className="text-sm text-gray-600">{chair.affiliation}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
