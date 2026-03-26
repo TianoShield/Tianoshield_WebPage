@@ -119,7 +119,7 @@ const Team = () => {
       website2: '',
       contactPerson: 'Alex Matrosov',
       degree: '',
-      position: 'CEO and Founder',
+      position: 'Founder and Board Member',
       email: '',
       phone1: '',
       phone1Label: '',
