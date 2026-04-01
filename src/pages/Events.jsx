@@ -40,7 +40,7 @@ const Events = () => {
       location: 'DoubleTree Resort by Hilton Hotel Paradise Valley, Scottsdale, Arizona, USA',
       projectWebsite: 'https://tianoshield.github.io/home',
       organizingCommittee: {
-         coChairs: [
+        coChairs: [
           {
             name: 'Armin Moin',
             affiliation: 'University of Colorado Colorado Springs (UCCS), USA',
@@ -102,25 +102,25 @@ const Events = () => {
           title: 'Session 1',
           talks: [
             {
-              title: "Meeting the NSA's \"Guidance for Managing UEFI Secure Boot\"",
+              title: "Meeting the NSA's Guidance for Managing UEFI Secure Boot",
               speaker: 'Kevin Davis',
-              speakerTitle: 'Office of Security and Trust, Insyde Software',
+              speakerTitle: 'Insyde Software',
               abstract: 'As the foundational layer of modern computing, UEFI firmware has become a primary target for sophisticated adversaries seeking "below-the-OS" persistence. This talk explores the evolution of the National Security Agency\'s (NSA) recommendations, specifically contrasting the 2017 defensive practices with the updated "Guidance for Managing UEFI Secure Boot" released in late 2025. Attendees will learn why the shift from the 2017 guidance was necessary, moving from a passive "enablement" stance to an active "management and customization" model. This change was driven by the rise of vulnerabilities like BootHole, BlackLotus, and PKFail, which demonstrated that default configurations are no longer sufficient against modern bootkits. The session will demonstrate how InsydeH2O® implementations address these requirements. We will cover how H2O provides the granular controls needed to replace factory keys, manage DBX revocation lists, and utilize "Thorough Boot" modes to audit all firmware modules and expansion devices. We will hint at some possible changes being proposed by UEFI groups. By the end of this session, participants will understand not only the why behind the NSA\'s rigorous new standards but also the how of implementing them using industry-leading UEFI solutions to mitigate persistent firmware threats.',
               type: 'talk',
             },
             {
-              title: 'TBA',
-              speaker: '',
-              speakerTitle: '',
-              abstract: null,
-              type: 'tba',
+              title: 'Journey towards identifying sufficient fidelity for effective fuzzing of EDK-2 components',
+              speaker: 'Srihari Danduri',
+              speakerTitle: 'Purdue University',
+              abstract: 'Modern firmware forms the foundation of platform security, yet its complexity and tight coupling with hardware make effective testing particularly challenging. While fuzzing is a well-established technique for vulnerability discovery, applying it to EDK II introduces unique challenges. Its layered architecture and reliance on hardware-backed protocols raise key questions: how can EDK II components be rehosted for fuzzing, what level of granularity should be targeted (function, component, or system), and which execution semantics must be preserved to ensure meaningful results? This talk presents a practical journey toward identifying the level of fidelity required for effective fuzzing of EDK II components. We examine where and how to inject fuzzing inputs across layers—for example, whether a DHCP implementation should be fuzzed via raw protocol inputs (UDP), through driver interfaces (PCI), or at higher-level abstractions. We show how these choices directly impact code coverage, bug discovery, and scalability. Through experiments on representative EDK II modules, we demonstrate that insufficient fidelity can hide entire classes of vulnerabilities, while overly complex environments can significantly reduce fuzzing throughput. We further explore strategies for rehosting components, selecting appropriate fuzzing boundaries, and maintaining critical semantics to minimize false positives while preserving realistic execution behavior. Attendees will gain actionable guidance on building balanced fuzzing setups that maximize bug-finding effectiveness without sacrificing fidelity. We conclude with lessons learned from achieving strong bug coverage while maintaining enough environmental accuracy to produce trustworthy results in firmware fuzzing.',
+              type: 'talk',
             },
             {
-              title: 'TBA',
-              speaker: '',
-              speakerTitle: '',
-              abstract: null,
-              type: 'tba',
+              title: 'Enhancing the software maintenance process in TianoCore',
+              speaker: 'Devin Haggitt',
+              speakerTitle: 'UCCS',
+              abstract: 'This talk introduces our efforts for enabling a streamlined process of handling bugs in the TianoCore ecosystem, starting from the EDK II project and extending it further to other repositories. Our focus is on enhancing the structure of bug reports and bringing some lessons learned and best practices with respect to the software maintenance process from other open-source ecosystems to the TianoCore community. We also work on improving the patch propagation throughout the ecosystem, as well as restructuring the CI/CD pipelines and integrating modern static and dynamic analysis and testing into these pipelines.',
+              type: 'talk',
             },
           ],
         },
@@ -136,7 +136,7 @@ const Events = () => {
             {
               title: 'Firmware-Specific Security Guidelines',
               speaker: 'Tim Lewis',
-              speakerTitle: 'CTO of Insyde Software',
+              speakerTitle: 'Insyde Software',
               abstract: "How do you convince 600+ system firmware engineers that they could be the reason that a customer's platform gets hacked? This is the real problem for one of the companies that provides the kit used by companies producing hundreds of laptop and server models each year. The solution is to pare down the lists of theoretical attacks on firmware to the list that are most likely to be encountered in the day-to-day coding activities of these engineers, and help them recognize the vulnerability patterns. In this talk, we will discuss the industry trends and the seven high-risk technology areas where most of the weaknesses lie in production UEFI system firmware, and the rules that help engineers recognize them.",
               type: 'talk',
             },
@@ -150,7 +150,7 @@ const Events = () => {
             {
               title: 'Using Artificial Intelligence (AI) to enhance the bug triage process in TianoCore (e.g., EDK II)',
               speaker: 'Nazanin Siavash',
-              speakerTitle: 'University of Colorado Colorado Springs (UCCS)',
+              speakerTitle: 'UCCS',
               abstract: 'Bug triage in large-scale open-source firmware projects, such as the TianoCore EDK II, is inherently time-consuming and resource-intensive. As the codebase expands, the manual process of bug triage faces a substantial bottleneck. This talk outlines our ongoing research on applying Artificial Intelligence (AI), specifically Machine Learning (ML) methods and techniques, to automate and streamline the bug triage pipeline within EDK II and beyond. We decompose the bug triage workflow into four focused sub-tasks: automated duplicate detection, automated bug prioritization, automated bug assignment, and automated invalid bug report detection. Additionally, we study automated bug title optimization. In this talk, we report the current progress on the first three components, duplicate detection, prioritization, and assignment, detailing our methodology and presenting preliminary results. In addition, we describe early-stage research directions for invalid bug report detection and bug title optimization, emphasizing the distinct challenges associated with the TianoCore bug reports. Our objective is to reduce the triage overhead, shorten bug resolution cycles, and enable software maintainers to concentrate on higher-value engineering activities. We conclude by discussing key lessons learned, open challenges, and the broader applicability of this approach to other open-source ecosystems.',
               type: 'talk',
             },
@@ -162,13 +162,45 @@ const Events = () => {
           isBreak: true,
         },
         {
-          time: '3:15 – 4:45 pm',
+          time: '3:15 – 3:45 pm',
           title: 'Session 3 (Industry Panel)',
           moderator: 'Aravind Machiry',
+          moderatorAffiliation: 'Purdue University',
+          panelists: [
+            { name: 'Tim Lewis', affiliation: 'Insyde Software' },
+            { name: 'Alex Matrosov', affiliation: 'Binarly' },
+            { name: 'TBA', affiliation: null },
+          ],
           talks: [],
         },
         {
-          time: '4:45 – 5:00 pm',
+          time: '3:45 – 3:55 pm',
+          title: 'Break',
+          isBreak: true,
+        },
+        {
+          time: '3:55 – 4:55 pm',
+          title: 'Session 4',
+          talks: [
+            {
+              title: 'Large Language Models for Software Security Weakness and Vulnerability Mitigation Through Patch Generation',
+              speaker: 'Michael Conner',
+              speakerTitle: 'UCCS',
+              abstract: 'We propose a novel approach to automated software security weakness and vulnerability mitigation, called LPatcher. We deploy Large Language Models (LLMs), such as Generative Pretrained Transformer (GPT) models of OpenAI and other similar generative AI artifacts, to generate software patches that can eliminate security threats in code snippets. Currently, we focus on C/C++, Python, Java, and JavaScript in our experimental study using the developed prototype. However, the LLM-based approach is flexible enough to be extended to other programming languages and libraries. This is a work-in-progress.',
+              type: 'talk',
+            },
+            {
+              title: 'Cascaded Vulnerability Attacks in Software Supply Chains',
+              speaker: 'Michael Connor',
+              speakerTitle: 'UCCS',
+              speakerNote: 'presenting the work of Laura Baird, UCCS',
+              abstract: 'Most of the current software security analysis tools assess vulnerabilities in isolation. However, sophisticated software supply chain security threats often stem from cascaded vulnerability and security weakness chains that span dependent components. Moreover, although the adoption of Software Bills of Materials (SBOMs) has been accelerating, downstream vulnerability findings vary substantially across SBOM generators and analysis tools. We propose a novel approach to SBOM-driven security analysis methods and tools. We model vulnerability relationships over dependency structure rather than treating scanner outputs as independent records. We represent enriched SBOMs as heterogeneous graphs with nodes being the SBOM components and dependencies, the known software vulnerabilities, and the known software security weaknesses. We then train a Heterogeneous Graph Attention Network (HGAT) to predict whether a component is associated with at least one known vulnerability. Since documented multi-vulnerability chains are scarce, we model cascade discovery as a link prediction problem over CVE pairs using a multi-layer perceptron neural network. This way, we produce ranked candidate links that can be composed into multi-step paths. The HGAT component classifier achieves an Accuracy of 91.03% and an F1-score of 74.02%.',
+              type: 'talk',
+            },
+          ],
+        },
+        {
+          time: '4:55 – 5:00 pm',
           title: 'Closing',
           isBreak: true,
         },
@@ -215,7 +247,7 @@ const Events = () => {
         {events.map((event) => (
           <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-primary-500">
 
-            {/* Event Title Banner — always visible, click to collapse */}
+            {/* Event Title Banner */}
             <button
               onClick={() => toggleEvent(event.id)}
               className="w-full text-left bg-gradient-to-r from-primary-50 to-accent-50 px-8 py-6 border-b border-gray-200 hover:from-primary-100 hover:to-accent-100 transition-colors"
@@ -228,7 +260,6 @@ const Events = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     {event.fullName}
                   </h2>
-                  {/* Always show date/time/location in header for quick reference */}
                   <div className="flex flex-wrap gap-4 mt-3">
                     <div className="flex items-center text-gray-600 text-sm">
                       <FaCalendarAlt className="mr-1.5 flex-shrink-0 text-primary-500" />
@@ -387,10 +418,9 @@ const Events = () => {
                             : 'bg-white border-gray-200 shadow-sm'
                         }`}
                       >
-                        {/* Fixed two-column layout: time badge fixed width | content */}
                         <div className="flex items-start gap-4 p-4">
 
-                          {/* Time badge — fixed width so all content starts at same x position */}
+                          {/* Time badge */}
                           <div className="w-36 flex-shrink-0">
                             <span className={`inline-block w-full text-center px-2 py-1 rounded-md text-xs font-semibold ${
                               slot.isBreak
@@ -407,12 +437,38 @@ const Events = () => {
                               {slot.title}
                             </p>
 
-                            {/* Moderator line */}
+                            {/* Moderator + Panelists for panel sessions */}
                             {slot.moderator && (
-                              <p className="text-sm text-gray-600 mt-1">
-                                Moderated by{' '}
-                                <span className="font-semibold text-primary-700">{slot.moderator}</span>
-                              </p>
+                              <div className="mt-2 space-y-1">
+                                <p className="text-sm text-gray-600">
+                                  Moderated by{' '}
+                                  <span className="font-semibold text-primary-700">{slot.moderator}</span>
+                                  {slot.moderatorAffiliation && (
+                                    <span className="text-gray-500">, {slot.moderatorAffiliation}</span>
+                                  )}
+                                </p>
+                                {slot.panelists && slot.panelists.length > 0 && (
+                                  <p className="text-sm text-gray-600">
+                                    <span className="font-medium text-gray-700">Panelists: </span>
+                                    {slot.panelists.map((p, pIdx) => (
+                                      <span key={pIdx}>
+                                        {p.name === 'TBA'
+                                          ? <span className="italic text-gray-400">TBA</span>
+                                          : (
+                                            <>
+                                              <span className="font-semibold text-gray-800">{p.name}</span>
+                                              {p.affiliation && (
+                                                <span className="text-gray-500"> ({p.affiliation})</span>
+                                              )}
+                                            </>
+                                          )
+                                        }
+                                        {pIdx < slot.panelists.length - 1 && ', '}
+                                      </span>
+                                    ))}
+                                  </p>
+                                )}
+                              </div>
                             )}
 
                             {slot.talks && slot.talks.length > 0 && (
@@ -445,6 +501,9 @@ const Events = () => {
                                             {talk.speaker}
                                             {talk.speakerTitle && (
                                               <span className="text-gray-500 font-normal"> — {talk.speakerTitle}</span>
+                                            )}
+                                            {talk.speakerNote && (
+                                              <span className="text-gray-400 font-normal italic"> ({talk.speakerNote})</span>
                                             )}
                                           </p>
                                         )}
