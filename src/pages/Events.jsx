@@ -62,7 +62,7 @@ const Events = () => {
       ],
       about: `A firmware program is embedded in non-volatile storage on a computer's motherboard. It controls how computing devices, ranging from cloud servers to resource-constrained Internet of Things (IoT) platforms, start their boot processes and interact with their operating systems after power-on. The Unified Extensible Firmware Interface (UEFI) is an open standard for computing system firmware architecture specification. The TianoCore community maintains reference implementations of various components of the UEFI specification, for example, EDK II. This has resulted in a vibrant and mature Open-Source Ecosystem (OSE) with a significant impact on global security, safety, and privacy. Given the widespread use of the TianoCore repositories, security vulnerabilities may be leveraged by malicious actors and cyber-criminals to develop exploits that could cause potentially massive-scale harm to individuals, businesses, and the public sectors, including critical infrastructure. A recent $1.2M project (2025-2027) sponsored by the U.S. National Science Foundation (NSF), named TianoShield, aims to enhance the state of security of the TianoCore OSE and improve its overall open-source development process and practices. FirmVuln26 will focus on improvements, new results, and open problems in protecting the TianoCore OSE by using the TianoShield project as the anchor, while welcoming talks from other participants and stakeholders in the firmware world.`,
       callForTalks: {
-        description: `If you are interested in delivering a talk at FirmVuln26, please email your proposed talk title and abstract (150-250 words) to the workshop Chair at`,
+        description: `If you are interested in delivering a talk at FirmVuln26, please email your proposed talk title and abstract (150-250 words) to `,
         email: 'amoin@uccs.edu',
         deadlineSubmission: 'March 20th, 2026',
         deadlineNotification: 'March 31st, 2026',
@@ -184,7 +184,7 @@ const Events = () => {
           talks: [
             {
               title: 'Large Language Models for Software Security Weakness and Vulnerability Mitigation Through Patch Generation',
-              speaker: 'Michael Conner',
+              speaker: 'Michael Connor',
               speakerTitle: 'UCCS',
               abstract: 'We propose a novel approach to automated software security weakness and vulnerability mitigation, called LPatcher. We deploy Large Language Models (LLMs), such as Generative Pretrained Transformer (GPT) models of OpenAI and other similar generative AI artifacts, to generate software patches that can eliminate security threats in code snippets. Currently, we focus on C/C++, Python, Java, and JavaScript in our experimental study using the developed prototype. However, the LLM-based approach is flexible enough to be extended to other programming languages and libraries. This is a work-in-progress.',
               type: 'talk',
