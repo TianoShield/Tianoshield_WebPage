@@ -162,36 +162,26 @@ const Events = () => {
           isBreak: true,
         },
         {
-          time: '3:15 – 3:45 pm',
-          title: 'Session 3 (Industry Panel)',
-          moderator: 'Aravind Machiry',
-          moderatorAffiliation: 'Purdue University',
-          panelists: [
-            { name: 'Tim Lewis', affiliation: 'Insyde Software' },
-            { name: 'Alex Matrosov', affiliation: 'Binarly' },
-            { name: 'TBA', affiliation: null },
-          ],
-          talks: [],
-        },
-        {
-          time: '3:45 – 3:55 pm',
-          title: 'Break',
-          isBreak: true,
-        },
-        {
-          time: '3:55 – 4:55 pm',
-          title: 'Session 4',
+          time: '3:15 – 4:45 pm',
+          title: 'Session 3',
           talks: [
             {
+              title: 'Responsible Disclosure is a Two-Way Street: Empirically Measuring the Responsible Disclosure Contract in the Firmware Ecosystem',
+              speaker: 'Hui Jun Tay',
+              speakerTitle: 'Arizona State University (ASU)',
+              abstract: null,
+              type: 'talk',
+            },
+            {
               title: 'Large Language Models for Software Security Weakness and Vulnerability Mitigation Through Patch Generation',
-              speaker: 'Michael Connor',
+              speaker: 'Michael Conner',
               speakerTitle: 'UCCS',
               abstract: 'We propose a novel approach to automated software security weakness and vulnerability mitigation, called LPatcher. We deploy Large Language Models (LLMs), such as Generative Pretrained Transformer (GPT) models of OpenAI and other similar generative AI artifacts, to generate software patches that can eliminate security threats in code snippets. Currently, we focus on C/C++, Python, Java, and JavaScript in our experimental study using the developed prototype. However, the LLM-based approach is flexible enough to be extended to other programming languages and libraries. This is a work-in-progress.',
               type: 'talk',
             },
             {
               title: 'Cascaded Vulnerability Attacks in Software Supply Chains',
-              speaker: 'Michael Connor',
+              speaker: 'Michael Conner',
               speakerTitle: 'UCCS',
               speakerNote: 'presenting the work of Laura Baird, UCCS',
               abstract: 'Most of the current software security analysis tools assess vulnerabilities in isolation. However, sophisticated software supply chain security threats often stem from cascaded vulnerability and security weakness chains that span dependent components. Moreover, although the adoption of Software Bills of Materials (SBOMs) has been accelerating, downstream vulnerability findings vary substantially across SBOM generators and analysis tools. We propose a novel approach to SBOM-driven security analysis methods and tools. We model vulnerability relationships over dependency structure rather than treating scanner outputs as independent records. We represent enriched SBOMs as heterogeneous graphs with nodes being the SBOM components and dependencies, the known software vulnerabilities, and the known software security weaknesses. We then train a Heterogeneous Graph Attention Network (HGAT) to predict whether a component is associated with at least one known vulnerability. Since documented multi-vulnerability chains are scarce, we model cascade discovery as a link prediction problem over CVE pairs using a multi-layer perceptron neural network. This way, we produce ranked candidate links that can be composed into multi-step paths. The HGAT component classifier achieves an Accuracy of 91.03% and an F1-score of 74.02%.',
@@ -200,7 +190,7 @@ const Events = () => {
           ],
         },
         {
-          time: '4:55 – 5:00 pm',
+          time: '4:45 – 5:00 pm',
           title: 'Closing',
           isBreak: true,
         },
@@ -436,40 +426,6 @@ const Events = () => {
                             <p className={`font-bold leading-snug ${slot.isBreak ? 'text-gray-500' : 'text-gray-900'}`}>
                               {slot.title}
                             </p>
-
-                            {/* Moderator + Panelists for panel sessions */}
-                            {slot.moderator && (
-                              <div className="mt-2 space-y-1">
-                                <p className="text-sm text-gray-600">
-                                  Moderated by{' '}
-                                  <span className="font-semibold text-primary-700">{slot.moderator}</span>
-                                  {slot.moderatorAffiliation && (
-                                    <span className="text-gray-500">, {slot.moderatorAffiliation}</span>
-                                  )}
-                                </p>
-                                {slot.panelists && slot.panelists.length > 0 && (
-                                  <p className="text-sm text-gray-600">
-                                    <span className="font-medium text-gray-700">Panelists: </span>
-                                    {slot.panelists.map((p, pIdx) => (
-                                      <span key={pIdx}>
-                                        {p.name === 'TBA'
-                                          ? <span className="italic text-gray-400">TBA</span>
-                                          : (
-                                            <>
-                                              <span className="font-semibold text-gray-800">{p.name}</span>
-                                              {p.affiliation && (
-                                                <span className="text-gray-500"> ({p.affiliation})</span>
-                                              )}
-                                            </>
-                                          )
-                                        }
-                                        {pIdx < slot.panelists.length - 1 && ', '}
-                                      </span>
-                                    ))}
-                                  </p>
-                                )}
-                              </div>
-                            )}
 
                             {slot.talks && slot.talks.length > 0 && (
                               <ul className="mt-3 space-y-4">
