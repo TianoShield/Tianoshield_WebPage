@@ -71,7 +71,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link 
                 to="/about"
-                className="px-8 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold hover:from-primary-600 hover:to-accent-600 transition-all shadow-lg relative overflow-hidden group"
+                className="px-8 py-3 bg-transparent border-2 border-accent-500 text-accent-400 rounded-lg font-semibold hover:bg-accent-500 hover:text-white transition-all relative overflow-hidden group"
               >
                 <div className="holo-effect"></div>
                 <span className="relative z-10">About</span>
@@ -82,6 +82,13 @@ const Home = () => {
               >
                 <div className="holo-effect"></div>
                 <span className="relative z-10">Get in Touch</span>
+              </Link>
+              <Link
+                to="https://github.com/TianoShield" target="_blank"
+                className="px-8 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold hover:from-primary-600 hover:to-accent-600 transition-all shadow-lg relative overflow-hidden group"
+              >
+                <div className="holo-effect"></div>
+                <span className="relative z-10">Repository</span>
               </Link>
             </div>
           </div>
