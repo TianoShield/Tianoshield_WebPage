@@ -53,7 +53,7 @@ const Events = () => {
       },
       programCommittee: [
         { name: 'Terrance E. Boult', affiliation: 'UCCS, Colorado, USA' },
-        { name: 'Edhaya Chandran', affiliation: 'Arm, Texas, USA' },
+        { name: 'G Edhaya Chandran', affiliation: 'Arm, Texas, USA' },
         { name: 'Srihari Danduri', affiliation: 'Purdue University, Indiana, USA' },
         { name: 'Connor Glosner', affiliation: 'Purdue University, Indiana, USA' },
         { name: 'Tim Lewis', affiliation: 'Insyde Software, Massachusetts, USA' },
