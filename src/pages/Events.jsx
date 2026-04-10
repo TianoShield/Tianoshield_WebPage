@@ -86,7 +86,7 @@ const Events = () => {
             {
               title: 'All Models Are Wrong, Some Are Useful: Firmware-Aware Risk Scoring for Real-World Prioritization',
               speaker: 'Alex Matrosov',
-              speakerTitle: 'CEO and Founder of Binarly Inc.',
+              speakerTitle: 'Binarly Inc.',
               abstract: 'Opaque scoring models are everywhere in vulnerability management, yet they often fail to drive clear action. This talk presents a transparent, firmware-aware risk scoring approach designed to support real-world prioritization for device and embedded security.',
               type: 'keynote',
             },
